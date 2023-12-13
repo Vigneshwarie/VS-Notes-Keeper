@@ -1,6 +1,8 @@
 // Import express and path package
 const express = require('express');
 const path = require('path');
+// Added route
+const api = require('./routes/index.js');
 
 // Initialize express
 const app = express();
@@ -8,6 +10,7 @@ const app = express();
 // Middleware to parse JSON and form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/api', api);
 
 // Invoking all static files through public folder
 app.use(express.static('public'));
