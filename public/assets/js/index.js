@@ -93,6 +93,7 @@ const handleNoteDelete = (e) => {
 
   if (activeNote.noteId === noteId) {
     activeNote = {};
+   
   }
 
   deleteNote(noteId).then(() => {

@@ -33,17 +33,14 @@ notes.delete('/:noteId', (req, res) => {
      console.log(req.params.noteId);
 
      var removeNoteId = req.params.noteId;
-     readFromFile('./db/db.json').then((data) => {
-          var jsonNotesData = JSON.parse(data);
-          console.log("inside===", jsonNotesData);
-          let filteredData = jsonNotesData.filter((data) => data.noteId !== removeNoteId)
-          console.log("filtered data===", filteredData);
-          writeToFile('./db/db.json', filteredData);
-     });
-
-      
-
-
+     if (removeNoteId) {
+               readFromFile('./db/db.json').then((data) => {
+               var jsonNotesData = JSON.parse(data);
+               let filteredData = jsonNotesData.filter((data) => data.noteId !== removeNoteId)
+                    writeToFile('./db/db.json', filteredData);
+                    res.status(204).json({"message":"Note deleted successfully"});                   
+          });
+     }
 });
 
 
