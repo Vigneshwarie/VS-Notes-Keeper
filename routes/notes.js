@@ -28,9 +28,9 @@ notes.post('/', (req, res) => {
      }
 });
 
-// Route to get one note based on id
+// Route to the note based on the given id
 notes.delete('/:noteId', (req, res) => {
-     console.log(req.params.noteId);
+     //console.log(req.params.noteId);
 
      var removeNoteId = req.params.noteId;
      if (removeNoteId) {
